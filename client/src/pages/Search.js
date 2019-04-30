@@ -39,7 +39,6 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    alert.info("Searching books... !");
     this.getBooks();
   };
 

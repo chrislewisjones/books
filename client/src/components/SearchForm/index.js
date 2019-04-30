@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchForm({ query, handleInputChange, handleFormSubmit }) {
   return (
-    <form className="form-inline" role="form">
+    <form className="form-inline">
       <div className="form-group mx-sm-3 mb-2">
         <label htmlFor="Title" className="sr-only">
           Search Book Title
@@ -12,8 +12,8 @@ function SearchForm({ query, handleInputChange, handleFormSubmit }) {
           id="Title"
           type="text"
           value={query}
-          placeholder="Book Title..."
-          name="q"
+          placeholder="Enter Book Title..."
+          name="query"
           onChange={handleInputChange}
           size="55"
           required
