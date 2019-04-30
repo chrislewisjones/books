@@ -4,9 +4,10 @@ export default {
   // Gets all books
   getBooks: function(query) {
     return axios.get("/api/google", {
-      params: { query: "title:" + query }
+      params: { query: "title:" }
     });
   },
+
   // Gets all saved books
   getSavedBooks: function() {
     return axios.get("/api/books/");
