@@ -1,7 +1,9 @@
 const axios = require("axios");
 const db = require("../models");
+const key = require("../client/src/utils/keys"); // link the keys.js
 
 // Defining methods for the googleController
+//
 
 module.exports = {
   findAll: function(req, res) {

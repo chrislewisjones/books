@@ -27,8 +27,6 @@ class Search extends Component {
         })
       )
       .catch(() => {
-        alert.error("Your search did not match any book results.");
-
         this.setState({
           books: [],
           message: "Your search did not match any book results.",
@@ -39,6 +37,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+
     this.getBooks();
   };
 
@@ -72,7 +71,7 @@ class Search extends Component {
                 <SearchForm
                   handleInputChange={this.handleInputChange}
                   handleFormSubmit={this.handleFormSubmit}
-                  q={this.state.q}
+                  q={this.state.query}
                 />
               </div>
             </div>
