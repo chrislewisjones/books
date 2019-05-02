@@ -47,9 +47,10 @@ class Saved extends Component {
                     React Google Books Search
                   </h1>
                   <br />
-                  <h3 className="heading-subtitle mx-sm-3 mb-2 text-center">
+                  <br />
+                  <h2 className="heading-subtitle mx-sm-3 mb-2 text-center">
                     There are {count} books in the Library
-                  </h3>
+                  </h2>
                 </div>
               </div>
             </div>

@@ -86,7 +86,7 @@ class Search extends Component {
 
         <div className="row">
           <div className="col-12 col-centered card-content mb-4">
-            <h1 className="heading-title mx-sm-3 mb-2 text-center">Results</h1>
+            <h3 className="heading-title mx-sm-3 mb-2 text-center">Results</h3>
 
             {this.state.books.length ? (
               <List>

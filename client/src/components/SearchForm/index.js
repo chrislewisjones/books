@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./index.css";
 function SearchForm({ query, handleInputChange, handleFormSubmit }) {
   return (
     <div class="container">
