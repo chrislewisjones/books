@@ -1,6 +1,8 @@
 import axios from "axios";
 const URL = "https://www.googleapis.com/books/v1/volumes?q=";
 
+// all the methods for the API
+
 export default {
   // Gets all books
   getBooks: function(query) {

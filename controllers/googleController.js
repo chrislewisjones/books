@@ -5,6 +5,9 @@ const key = require("../client/src/utils/keys"); // link the keys.js
 // Defining methods for the googleController
 //
 
+// filter out any results that do not have all required keys
+// then filter out any google id that has already been saved
+
 module.exports = {
   findAll: function(req, res) {
     const { query: params } = req;

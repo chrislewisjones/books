@@ -3,6 +3,7 @@ import Book from "../components/Book/index";
 import SearchForm from "../components/SearchForm/index";
 import { List } from "../components/List/index";
 import API from "../utils/API";
+import Jumbotron from "../components/Jumbotron";
 
 class Search extends Component {
   state = {
@@ -11,6 +12,7 @@ class Search extends Component {
     message: "Search for books via the Google Books API"
   };
 
+  // handleInputChange is built into React, here we are updating the state to reflect the users input
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -18,29 +20,33 @@ class Search extends Component {
     });
   };
 
+  // function to call the API with query, results put into an array of books
+  // then catch error message if results come back empty
+  // this.state.query - the users submission
+
   getBooks = () => {
     API.getBooks(this.state.query)
       .then(res =>
         this.setState({
-          books: res.data,
-          currentPage: 1
+          books: res.data
         })
       )
       .catch(() => {
         this.setState({
           books: [],
-          message: "Your search did not match any book results.",
-          currentPage: 1
+          message: "Your search did not match any book results."
         });
       });
   };
 
+  // runs getbooks, along with page not refreshing
   handleFormSubmit = event => {
     event.preventDefault();
 
     this.getBooks();
   };
 
+  // saves the book by id, then saved book will not appear when getBooks runs again
   handleBookSave = id => {
     const book = this.state.books.find(book => book.id === id);
 
@@ -59,24 +65,27 @@ class Search extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-10 col-centered">
-            <div className="d-flex flex-wrap flex-row bd-highlight mb-3 justify-content-center align-items-center">
-              <div className="order-sm-1 p-2 bd-highlight">
-                <h1 className="heading-title mx-sm-3 mb-2">
-                  React Google Books Search
-                </h1>
-                <h2 className="heading-subtitle mx-sm-3 mb-2">
-                  Search for and Save Books of Interest.
-                </h2>
-                <SearchForm
-                  handleInputChange={this.handleInputChange}
-                  handleFormSubmit={this.handleFormSubmit}
-                  q={this.state.query}
-                />
+          <div className="col-12 col-centered">
+            <Jumbotron>
+              <div className="d-flex flex-wrap flex-row bd-highlight mb-3 justify-content-center align-items-center">
+                <div className="order-sm-1 p-2 bd-highlight">
+                  <h1 className="heading-title mx-sm-3 mb-2">
+                    React Google Books Search
+                  </h1>
+                  <h2 className="heading-subtitle mx-sm-3 mb-2">
+                    Search for and Save Books of Interest
+                  </h2>
+                </div>
               </div>
-            </div>
+            </Jumbotron>
+            <SearchForm
+              handleInputChange={this.handleInputChange}
+              handleFormSubmit={this.handleFormSubmit}
+              q={this.state.query}
+            />
           </div>
         </div>
+
         <div className="row">
           <div className="col-10 col-centered card-content mb-4">
             <h1 className="heading-title mx-sm-3 mb-2 text-center">Results</h1>
