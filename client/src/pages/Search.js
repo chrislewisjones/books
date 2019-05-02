@@ -64,30 +64,28 @@ class Search extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-12 col-centered">
-            <Jumbotron>
+        <Jumbotron>
+          <div className="row">
+            <div className="col-12 col-centered">
               <div className="d-flex flex-wrap flex-row bd-highlight mb-3 justify-content-center align-items-center">
                 <div className="order-sm-1 p-2 bd-highlight">
                   <h1 className="heading-title mx-sm-3 mb-2">
                     React Google Books Search
                   </h1>
-                  <h2 className="heading-subtitle mx-sm-3 mb-2">
-                    Search for and Save Books of Interest
-                  </h2>
+                  <br />
                 </div>
               </div>
-            </Jumbotron>
-            <SearchForm
-              handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
-              q={this.state.query}
-            />
+              <SearchForm
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+                q={this.state.query}
+              />
+            </div>
           </div>
-        </div>
+        </Jumbotron>
 
         <div className="row">
-          <div className="col-10 col-centered card-content mb-4">
+          <div className="col-12 col-centered card-content mb-4">
             <h1 className="heading-title mx-sm-3 mb-2 text-center">Results</h1>
 
             {this.state.books.length ? (

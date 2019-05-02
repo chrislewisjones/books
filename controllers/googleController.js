@@ -1,12 +1,14 @@
 const axios = require("axios");
 const db = require("../models");
-const key = require("../client/src/utils/keys"); // link the keys.js
+// const key = require("../client/src/utils/keys"); // link the keys.js . . turns out not needed
 
 // Defining methods for the googleController
 //
 
+// request parameter query through the get route,
 // filter out any results that do not have all required keys
 // then filter out any google id that has already been saved
+// then use the resultant json in books
 
 module.exports = {
   findAll: function(req, res) {

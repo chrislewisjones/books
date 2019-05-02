@@ -1,9 +1,15 @@
 import React from "react";
+import booksimg from "../../images/books.jpg";
 
 function Jumbotron({ children }) {
   return (
     <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
+      style={{
+        backgroundImage: `url(${booksimg})`,
+        height: "100%",
+        textAlign: "center",
+        width: "100%"
+      }}
       className="jumbotron"
     >
       {children}

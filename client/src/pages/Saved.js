@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { List } from "../components/List/index";
 import Book from "../components/Book/index";
 import API from "../utils/API";
+import Jumbotron from "../components/Jumbotron";
 
 class Saved extends Component {
   state = {
@@ -34,25 +35,28 @@ class Saved extends Component {
   };
   render() {
     const { length: count } = this.state.books;
+
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-8 col-centered">
-            <div className="d-flex flex-row bd-highlight mb-3 justify-content-center align-items-center">
-              <div className="p-2 bd-highlight">
-                <h1 className="heading-title mx-sm-3 mb-2">
-                  React Google Books Search
-                </h1>
-
-                <h2 className="heading-subtitle mx-sm-3 mb-2 text-center">
-                  Showing {count} books in the database.
-                </h2>
+        <Jumbotron>
+          <div className="row">
+            <div className="col-12 col-centered">
+              <div className="d-flex flex-row bd-highlight mb-3 justify-content-center align-items-center">
+                <div className="p-2 bd-highlight">
+                  <h1 className="heading-title mx-sm-3 mb-2">
+                    React Google Books Search
+                  </h1>
+                  <br />
+                  <h3 className="heading-subtitle mx-sm-3 mb-2 text-center">
+                    There are {count} books in the Library
+                  </h3>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Jumbotron>
         <div className="row">
-          <div className="col-8 col-centered card-content">
+          <div className="col-12 col-centered card-content">
             {this.state.books.length ? (
               <List>
                 {this.state.books.map(book => (
